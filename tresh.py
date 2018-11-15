@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import time
 
 def nothing(x):
     pass
@@ -8,11 +9,11 @@ def nothing(x):
 cap = cv2.VideoCapture('6.mp4')
 cv2.namedWindow("Trackbars")
 
-cv2.createTrackbar("L - H", "Trackbars", 0, 179, nothing)
-cv2.createTrackbar("L - S", "Trackbars", 65, 255, nothing)
+cv2.createTrackbar("L - H", "Trackbars", 48, 179, nothing)
+cv2.createTrackbar("L - S", "Trackbars", 70, 255, nothing)
 cv2.createTrackbar("L - V", "Trackbars", 0, 255, nothing)
 cv2.createTrackbar("U - H", "Trackbars", 179, 179, nothing)
-cv2.createTrackbar("U - S", "Trackbars", 75, 255, nothing)
+cv2.createTrackbar("U - S", "Trackbars", 117, 255, nothing)
 cv2.createTrackbar("U - V", "Trackbars", 255, 255, nothing)
 
 
@@ -36,6 +37,7 @@ while True:
     cv2.imshow("frame", frame)
     cv2.imshow("mask", mask)
     cv2.imshow("result", result)
+    time.sleep(0.25)
 
     key = cv2.waitKey(1)
     if key == 27:
